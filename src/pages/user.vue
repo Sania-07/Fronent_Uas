@@ -22,7 +22,7 @@
             <label for="ulasan">Ulasan</label>
             <input type="text" class="form-control" id="ulasan" v-model="formData.ulasan">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
 
         </form>
         <button class="btn btn-secondary" @click="toggleAddForm">Cancel</button>
