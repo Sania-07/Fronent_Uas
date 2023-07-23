@@ -104,9 +104,15 @@ export default {
           });
       }
     },
-    editProduct(product) {
-      this.formData = { ...product };
-      this.showAddForm = true;
+    editProduct(productId) {
+      axios.put(`https://backend-uas.vercel.app/product/${productId}`)
+        .then(() => {
+          console.log('Product Update with ID:', productId);
+          this.fetchProducts();
+        })
+        .catch(error => {
+          console.error(error);
+        });
     },
     deleteProduct(productId) {
       axios.delete(`https://backend-uas.vercel.app/product/${productId}`)
