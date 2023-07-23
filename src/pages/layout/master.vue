@@ -2,8 +2,8 @@
   <div class="w-full h-full flex">
     <sidebar :dataOpenSideBar="openSidebar" />
     <div class="w-full h-full">
-      <headerTop :dataOpenSideBar="openSidebar" :clickHambuger="toggleSidebar" />
-      <div class="w-full h-[calc(100vh-50px)]">
+      <headerTop :dataOpenSideBar="openSidebar" @clickHambuger="toggleSidebar" />
+      <div class="w-full h-[calc(100vh-50px)] overflow-auto">
         <router-view></router-view>
       </div>
     </div>
@@ -26,10 +26,9 @@ export default {
       this.openSidebar = !this.openSidebar
     }
   }
-
 }
 </script>
 
-<style>
-
+<style scoped>
+/* Tambahkan gaya CSS sesuai kebutuhan Anda di sini */
 </style>

@@ -1,65 +1,16 @@
 <template>
   <div class="product-container">
-    <div class="font-bold text-4xl py-3">Lotso Bracalet</div>
+    <div class="font-bold text-4xl py-3">Lotso Bracelet</div>
     <div class="image-container">
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/images4.jpeg" alt="Gambar Product">
+      <div
+        v-for="(product, index) in products"
+        :key="index"
+        class="image-wrapper"
+        @click="selectProduct(index)"
+      >
+        <img class="product-image" :src="product.image" :alt="product.name">
         <div class="image-caption">
-          <p><strong>Rainbow Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/images3.jpeg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>MutiaraLove Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/tipe1.jpeg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Sunflawer Bracalet</strong></p>
-        </div>
-       </div>
-       <div class="image-wrapper">
-        <img class="product-image" src="@/assets/images6.jpeg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Butterfly Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/images4.jpeg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Daisyrainbow Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/Tipe3.jpeg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Bluepearl Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/image7s.jpeg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Crystalpendant Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/images12.jpg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Pearlanimals Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/images8.jpg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Crystalchain Bracalet</strong></p>
-        </div>
-      </div>
-      <div class="image-wrapper">
-        <img class="product-image" src="@/assets/Gemoy.jpg" alt="Gambar Product">
-        <div class="image-caption">
-          <p><strong>Fishshell Bracalet</strong></p>
+          <p><strong>{{ product.name }}</strong></p>
         </div>
       </div>
     </div>
@@ -68,8 +19,33 @@
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      products: [
+        { name: 'Rainbow Bracelet', image: require('@/assets/images4.jpeg') },
+        { name: 'MutiaraLove Bracelet', image: require('@/assets/images3.jpeg') },
+        { name: 'Sunflower Bracelet', image: require('@/assets/tipe1.jpeg') },
+        { name: 'Butterfly Bracelet', image: require('@/assets/images6.jpeg') },
+        { name: 'Daisy Rainbow Bracelet', image: require('@/assets/images4.jpeg') },
+        { name: 'Blue Pearl Bracelet', image: require('@/assets/Tipe3.jpeg') },
+        { name: 'Crystal Pendant Bracelet', image: require('@/assets/image7s.jpeg') },
+        { name: 'Pearl Animals Bracelet', image: require('@/assets/images12.jpg') },
+        { name: 'Crystal Chain Bracelet', image: require('@/assets/images8.jpg') },
+        { name: 'Fish Shell Bracelet', image: require('@/assets/Gemoy.jpg') }
+      ],
+      selectedProduct: null
+    };
+  },
+  methods: {
+    selectProduct(index) {
+      if (this.selectedProduct === index) {
+        this.selectedProduct = null; // Batal memilih gambar jika sudah dipilih sebelumnya
+      } else {
+        this.selectedProduct = index;
+      }
+    }
+  }
+};
 </script>
 
 <style>
@@ -79,15 +55,16 @@ export default {
 
 .image-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 9fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 23px;
-  justify-content: space-between; /* Memberikan ruang di antara gambar */
+  justify-content: center;
 }
 
 .image-wrapper {
   position: relative;
   flex: 2;
-  margin: 0 12px; /* Memberikan ruang di antara gambar */
+  margin: 0 12px;
+  cursor: pointer;
 }
 
 .product-image {
@@ -96,7 +73,7 @@ export default {
   border: 1px solid #af176b;
   border-radius: 20px;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.7);
-  object-fit: cover; /* Mengatur gambar agar sesuai dengan ukuran container */
+  object-fit: cover;
   margin-top: 16px;
 }
 
@@ -110,7 +87,7 @@ export default {
   padding: 4px;
   border-radius: 7px;
   box-sizing: border-box;
-  text-align: center; /* Tengahkan teks deskripsi */
+  text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease;
 }

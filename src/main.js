@@ -10,6 +10,8 @@ import InputText from 'primevue/inputtext';
 import Avatar from 'primevue/avatar';
 import Menu from 'primevue/menu';
 import Tooltip from 'primevue/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 import store from './store';
 const app = createApp(App);

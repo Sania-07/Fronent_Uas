@@ -19,8 +19,14 @@ export default [
         name: 'product',
         path: '/product',
         component: () => import('./../pages/product'), // Use a function to reference the component
-      },
+      }
       // Add more child routes here
     ]
-  }
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: () => import('./../pages/login'), // Use a function to reference the component 
+  },
 ]
+
