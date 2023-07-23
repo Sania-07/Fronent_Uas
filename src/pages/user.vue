@@ -47,7 +47,7 @@
           <td>{{ product.alamat }}</td>
           <td>{{ product.ulasan }}</td>
           <td>
-            <button class="btn btn-primary" @click="editProduct(product.id)">Edit</button>
+            <button class="btn btn-primary" @click="editProduct(product)">Edit</button>
             <button class="btn btn-danger" @click="deleteProduct(product.id)">Hapus</button>
           </td>
         </tr>
