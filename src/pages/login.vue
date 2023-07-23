@@ -46,7 +46,7 @@ export default {
         password: this.password
       };
 
-      axios.post("http://localhost:3001/user/login", userData)
+      axios.post("https://backend-uas.vercel.app/user/login", userData)
         .then(response => {
           // Save the token to localStorage
                 const token = response.data.token;
@@ -72,7 +72,7 @@ export default {
         confpassword: this.registerConfPassword
       };
 
-      axios.post("http://localhost:3001/user/register", userData)
+      axios.post("https://backend-uas.vercel.app/user/register", userData)
         .then(response => {
           console.log("Register successful:", response.data);
           // Lakukan tindakan setelah berhasil register, misalnya menampilkan pesan sukses

@@ -82,7 +82,7 @@ export default {
     submitProduct() {
       if (this.formData.id) {
         // Update existing product
-        axios.put(`http://localhost:3001/product/${this.formData.id}`, this.formData)
+        axios.put(`https://backend-uas.vercel.app/product/${this.formData.id}`, this.formData)
           .then(response => {
             console.log('Product updated:', response.data);
             this.fetchProducts();
@@ -93,7 +93,7 @@ export default {
           });
       } else {
         // Add new product
-        axios.post('http://localhost:3001/product', this.formData)
+        axios.post('https://backend-uas.vercel.app/product', this.formData)
           .then(response => {
             console.log('Product added:', response.data);
             this.fetchProducts();
@@ -109,7 +109,7 @@ export default {
       this.showAddForm = true;
     },
     deleteProduct(productId) {
-      axios.delete(`http://localhost:3001/product/${productId}`)
+      axios.delete(`https://backend-uas.vercel.app/product/${productId}`)
         .then(() => {
           console.log('Product deleted with ID:', productId);
           this.fetchProducts();
@@ -119,7 +119,7 @@ export default {
         });
     },
     fetchProducts() {
-      axios.get('http://localhost:3001/product')
+      axios.get('https://backend-uas.vercel.app/product')
         .then(response => {
           this.products = response.data;
         })
