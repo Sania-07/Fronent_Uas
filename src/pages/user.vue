@@ -82,7 +82,7 @@ export default {
     submitProduct() {
       if (this.formData.id) {
         // Update existing product
-        axios.put(`https://backend-uas.vercel.app/product/${this.formData.id}`, this.formData)
+        axios.put('https://backend-uas.vercel.app/product/${this.formData.id', this.formData)
           .then(response => {
             console.log('Product updated:', response.data);
             this.fetchProducts();
