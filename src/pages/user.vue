@@ -47,7 +47,7 @@
           <td>{{ product.alamat }}</td>
           <td>{{ product.ulasan }}</td>
           <td>
-            <button class="btn btn-primary" @click="editProduct(product)">Edit</button>
+            <button class="btn btn-primary" @click="editProduct(product.id)">Edit</button>
             <button class="btn btn-danger" @click="deleteProduct(product.id)">Hapus</button>
           </td>
         </tr>
@@ -104,15 +104,17 @@ export default {
           });
       }
     },
-    editProduct(productId) {
-      axios.put(`https://backend-uas.vercel.app/product/${productId}`)
-        .then(() => {
-          console.log('Product Update with ID:', productId);
-          this.fetchProducts();
-        })
-        .catch(error => {
-          console.error(error);
-        });
+    editProduct(product) {
+      this.formData = { ...product };
+      this.showAddForm = true;
+      // axios.put(`https://backend-uas.vercel.app/product/${productId}`)
+      //   .then(() => {
+      //     console.log('Product Update with ID:', productId);
+      //     this.fetchProducts();
+      //   })
+      //   .catch(error => {
+      //     console.error(error);
+      //   });
     },
     deleteProduct(productId) {
       axios.delete(`https://backend-uas.vercel.app/product/${productId}`)
