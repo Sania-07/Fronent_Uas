@@ -46,6 +46,7 @@ export default {
       // Lakukan proses logout di sini
       // Misalnya hapus data autentikasi atau status login
       localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('token');
       localStorage.removeItem('password'); // Hapus password dari penyimpanan lokal
 
       // Redirect ke halaman login

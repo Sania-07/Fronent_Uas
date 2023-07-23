@@ -16,6 +16,13 @@
 import axios from 'axios';
 export default {
   mounted() {
+    const token = localStorage.getItem('token');
+    console.log(token);
+
+    if (!token) {
+      this.$router.push("/login");
+    }
+
     axios.get('https://api.example.com/data')
       .then(response => {
         console.log(response.data);
