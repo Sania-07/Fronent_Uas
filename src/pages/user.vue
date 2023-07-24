@@ -22,7 +22,7 @@
             <label for="ulasan">Ulasan</label>
             <input type="text" class="form-control" id="ulasan" v-model="formData.ulasan">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
 
         </form>
         <button class="btn btn-secondary" @click="toggleAddForm">Cancel</button>
@@ -113,6 +113,14 @@ export default {
     editProduct(product) {
       this.formData = { ...product };
       this.showAddForm = true;
+      // axios.put(`https://backend-uas.vercel.app/product/${productId}`)
+      //   .then(() => {
+      //     console.log('Product Update with ID:', productId);
+      //     this.fetchProducts();
+      //   })
+      //   .catch(error => {
+      //     console.error(error);
+      //   });
     },
     deleteProduct(productId) {
       axios.delete(`https://backend-uas.vercel.app/product/${productId}`)
