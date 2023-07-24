@@ -61,6 +61,12 @@ import axios from 'axios';
 
 export default {
   data() {
+    const token = localStorage.getItem('token');
+    console.log(token);
+
+    if (!token) {
+      this.$router.push("/login");
+    }
     return {
       products: [],
       showAddForm: false,
