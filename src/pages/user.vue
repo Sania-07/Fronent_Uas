@@ -86,7 +86,7 @@ export default {
       this.showAddForm = !this.showAddForm;
     },
     submitProduct() {
-      if (this.formData.id) {
+      if (this.product.id) {
         // Update existing product
         axios.put(`https://backend-uas.vercel.app/product/${this.formData.id}`, this.formData)
           .then(response => {
